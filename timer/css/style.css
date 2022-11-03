@@ -1,0 +1,36 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+}
+.timer {
+  padding: 15px;
+  width: 300px;
+  margin: 0 auto;
+  height: 35%;
+  text-align: center;
+  background-color: rgb(235, 241, 241);
+  border-radius: 10px;
+}
+.inputs input {
+  width: 200px;
+  padding: 10px;
+}
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.buttons button {
+  padding: 10px 25px;
+  color: white;
+  background-color: rgb(131, 195, 252);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.buttons button:hover {
+  background-color: rgb(53, 156, 247);
+}
