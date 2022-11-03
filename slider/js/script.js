@@ -1,14 +1,14 @@
 // Slider
 
-let slideIndex = 1;
-
-const slides = document.querySelectorAll(".offer__slide"),
-  prev = document.querySelector(".offer__slider-prev"),
-  next = document.querySelector(".offer__slider-next"),
-  total = document.querySelector("#total"),
-  current = document.querySelector("#current");
+const slides = document.querySelectorAll(".offer__slide");
+const prev = document.querySelector(".offer__slider-prev");
+const next = document.querySelector(".offer__slider-next");
+const total = document.querySelector("#total");
+const current = document.querySelector("#current");
 
 let currentSlide;
+let slideIndex = 1;
+let timeInterval;
 
 if (localStorage.getItem("currentSlide")) {
   currentSlide = +localStorage.getItem("currentSlide");
@@ -18,43 +18,35 @@ if (localStorage.getItem("currentSlide")) {
 }
 
 showSlides(slideIndex);
+autoSlider();
+getZero(total, slides.length);
 
-if (slides.length < 10) {
-  total.textContent = `0${slides.length}`;
-} else {
-  total.textContent = slides.length;
-}
-
-// Нажатие кнопок для переключения
 document.addEventListener("keydown", function (event) {
   if (event.code == "Space") {
-    plusSlides(1);
+    toggleSlide(1);
   }
 
   if (event.code == "ArrowRight") {
-    plusSlides(1);
+    toggleSlide(1);
   }
 
   if (event.code == "ArrowLeft") {
-    plusSlides(-1);
+    toggleSlide(-1);
   }
 });
 
-setInterval(() => {
-  plusSlides(1);
-}, 2000);
-
-// Слайд назад
 prev.addEventListener("click", function () {
+  clearInterval(timeInterval);
   plusSlides(-1);
+  autoSlider(total, slides.length);
 });
 
-// Слайд вперёд
 next.addEventListener("click", function () {
+  clearInterval(timeInterval);
   plusSlides(1);
+  autoSlider();
 });
 
-// Показ слайдов
 function showSlides(n) {
   if (n > slides.length) {
     slideIndex = 1;
@@ -67,14 +59,30 @@ function showSlides(n) {
 
   slides[slideIndex - 1].style.display = "block";
 
-  if (slides.length < 10) {
-    current.textContent = `0${slideIndex}`;
-  } else {
-    current.textContent = slideIndex;
-  }
+  getZero(current, slideIndex);
 }
 
 function plusSlides(n) {
   showSlides((slideIndex += n));
   localStorage.setItem("currentSlide", slideIndex);
+}
+
+function autoSlider() {
+  timeInterval = setInterval(() => {
+    plusSlides(1);
+  }, 2000);
+}
+
+function getZero(elem, numberSlide) {
+  if (slides.length < 10) {
+    elem.textContent = `0${numberSlide}`;
+  } else {
+    elem.textContent = numberSlide;
+  }
+}
+
+function toggleSlide(num) {
+  clearInterval(timeInterval);
+  plusSlides(num);
+  autoSlider();
 }

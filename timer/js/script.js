@@ -1,18 +1,17 @@
 // Timer
 
-const btnStart = document.querySelector(".start"),
-  btnStop = document.querySelector(".stop"),
-  btnReset = document.querySelector(".reset"),
-  minutes = document.querySelector("#minutes"),
-  seconds = document.querySelector("#seconds"),
-  body = document.querySelector("body"),
-  btnsMin = document.querySelectorAll(".min button");
+const btnStart = document.querySelector(".start");
+const btnStop = document.querySelector(".stop");
+const btnReset = document.querySelector(".reset");
+const minutes = document.querySelector("#minutes");
+const seconds = document.querySelector("#seconds");
+const body = document.querySelector("body");
+const btnsMin = document.querySelectorAll(".min button");
 
 let timeInterval, minValue, secValue;
 
 const audio = document.querySelector(`audio[data-key='70']`);
 
-// Ограничения на ввод секунд от 0 до 60
 seconds.addEventListener("input", (e) => {
   if (+e.target.value > 60) {
     seconds.value = 60;
@@ -23,7 +22,6 @@ seconds.addEventListener("input", (e) => {
   }
 });
 
-// Перезапуск страницы
 if (localStorage.getItem("minutes")) {
   minValue = +localStorage.getItem("minutes");
   secValue = +localStorage.getItem("seconds");
@@ -41,7 +39,6 @@ if (localStorage.getItem("minutes")) {
   }
 }
 
-// Кнопки времени
 btnsMin.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -52,7 +49,6 @@ btnsMin.forEach((btn) => {
   });
 });
 
-// Start
 btnStart.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -64,14 +60,12 @@ btnStart.addEventListener("click", (e) => {
   setDisabled(true);
 });
 
-// Stop
 btnStop.addEventListener("click", (e) => {
   e.preventDefault();
   clearInterval(timeInterval);
   localStorage.setItem("playing", false);
 });
 
-// Reset
 btnReset.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -86,7 +80,6 @@ btnReset.addEventListener("click", (e) => {
   audio.pause();
 });
 
-// Получение времени
 function getTimeRemaining(min, sec) {
   let seconds = sec;
   let minutes = min;
@@ -111,7 +104,6 @@ function getTimeRemaining(min, sec) {
   };
 }
 
-// Установка времени
 function setClock(minValue, secValue) {
   timeInterval = setInterval(updateClock, 1000);
 
