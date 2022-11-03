@@ -14,15 +14,9 @@ body {
   background-color: rgb(235, 241, 241);
   border-radius: 10px;
 }
-.inputs {
-}
 .inputs input {
   width: 200px;
   padding: 10px;
-}
-.minutes {
-}
-.seconds {
 }
 .buttons {
   margin-top: 20px;
@@ -39,10 +33,4 @@ body {
 }
 .buttons button:hover {
   background-color: rgb(53, 156, 247);
-}
-.start {
-}
-.stop {
-}
-.reset {
 }
