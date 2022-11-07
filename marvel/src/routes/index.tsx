@@ -1,6 +1,7 @@
 // В этом файле массив со всем путями / роутами приложения
 import CharactersList from 'components/charactersList/CharactersList';
 import ComicsList from 'components/comicsList/ComicsList';
+import SeriesList from 'components/seriesList/SeriesList';
 
 const routes = [
   {
@@ -10,6 +11,10 @@ const routes = [
   {
     path: '/comics',
     element: <ComicsList />
+  },
+  {
+    path: '/series',
+    element: <SeriesList />
   },
   { path: '*', element: <div>Not Found</div> }
 ];
