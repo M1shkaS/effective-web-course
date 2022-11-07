@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Link as RouterLink, NavLink } from 'react-router-dom';
 
 import AppBar from '@mui/material/AppBar';

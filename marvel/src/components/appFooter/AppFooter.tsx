@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
@@ -17,9 +18,9 @@ const AppFooter: FC = () => {
         }}
       >
         <Typography component="div">
-          <Link href="/">
+          <RouterLink to="/">
             <img className="logo" src={marvelLogo} alt="logo" />
-          </Link>
+          </RouterLink>
         </Typography>
         <Typography component="div" color="white">
           {`Data provided by Marvel. © ${new Date().getFullYear()} MARVEL`}
