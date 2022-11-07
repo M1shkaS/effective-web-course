@@ -1,8 +1,12 @@
 // В этом файле массив со всем путями / роутами приложения
+import CharactersList from 'components/charactersList/CharactersList';
 
-export default [
+const routes = [
   {
-    path: '404',
-    element: <div>Not Found</div>
-  }
+    path: '/',
+    element: <CharactersList />
+  },
+  { path: '*', element: <div>Not Found</div> }
 ];
+
+export default routes;

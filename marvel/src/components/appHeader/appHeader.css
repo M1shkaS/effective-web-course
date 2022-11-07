@@ -1,0 +1,8 @@
+.nav-link {
+  text-decoration: none;
+  color: rgb(243, 243, 81);
+}
+.active {
+  text-decoration: underline;
+  color: rgb(201, 201, 201);
+}

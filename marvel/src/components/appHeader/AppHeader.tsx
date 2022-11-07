@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Link as RouterLink, NavLink } from 'react-router-dom';
 
 import AppBar from '@mui/material/AppBar';
 import Typography from '@mui/material/Typography';
@@ -6,30 +7,36 @@ import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import Link from '@mui/material/Link';
 
 import marvelLogo from '../../../public/marvel_logo.svg';
-
-const navItems = ['Characters', 'Comics', 'Series'];
+import './appHeader.css';
 
 const AppHeader: FC = () => {
   return (
     <AppBar position="static" sx={{ backgroundColor: '#d90b3e' }}>
       <Toolbar>
         <Typography component="div" sx={{ flexGrow: 1 }}>
-          <Typography href="/" component="a">
+          <RouterLink to="/">
             <img className="logo" src={marvelLogo} alt="logo" />
-          </Typography>
+          </RouterLink>
         </Typography>
         <Box component="nav">
           <List sx={{ display: { xs: 'none', sm: 'flex' } }}>
-            {navItems.map((item) => (
-              <ListItem key={item}>
-                <Link color="white" href="/" underline="none">
-                  {item}
-                </Link>
-              </ListItem>
-            ))}
+            <ListItem>
+              <NavLink to="/" className="nav-link">
+                Characters
+              </NavLink>
+            </ListItem>
+            <ListItem>
+              <NavLink to="/comics" className="nav-link">
+                Comics
+              </NavLink>
+            </ListItem>
+            <ListItem>
+              <NavLink to="/series" className="nav-link">
+                Series
+              </NavLink>
+            </ListItem>
           </List>
         </Box>
       </Toolbar>
