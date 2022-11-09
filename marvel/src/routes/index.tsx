@@ -1,7 +1,6 @@
-// В этом файле массив со всем путями / роутами приложения
-import CharactersList from 'components/charactersList/CharactersList';
-import ComicsList from 'components/comicsList/ComicsList';
-import SeriesList from 'components/seriesList/SeriesList';
+import CharactersList from 'routes/charactersList/CharactersList';
+import ComicsList from 'routes/comicsList/ComicsList';
+import SeriesList from 'routes/seriesList/SeriesList';
 
 const routes = [
   {
