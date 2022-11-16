@@ -1,5 +1,3 @@
-import { FC } from 'react';
-
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
@@ -36,16 +34,16 @@ const series = [
   }
 ];
 
-const SeriesList: FC = () => {
+const SeriesList = () => {
   return (
     <>
-      <Typography sx={{ mb: '10px' }} variant="h3" color="#525252">
+      <Typography sx={{ mb: '10px', color: '#525252' }} variant="h3">
         Series (50)
       </Typography>
       <SearchForm />
       <Grid container sx={{ mt: '1rem' }} spacing={2}>
         {series.map((item) => (
-          <CardItem key={item.id} {...item} />
+          <CardItem page="series" key={item.id} {...item} />
         ))}
       </Grid>
     </>

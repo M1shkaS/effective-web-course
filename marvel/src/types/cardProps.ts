@@ -1,6 +1,7 @@
-export interface CardProps {
+export interface ICardProps {
    id: number,
    name: string,
    description: string,
-   img: string
+   img: string,
+   page: string
 }

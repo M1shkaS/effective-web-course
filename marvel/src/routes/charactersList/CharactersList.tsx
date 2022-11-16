@@ -1,5 +1,3 @@
-import { FC } from 'react';
-
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
@@ -37,16 +35,16 @@ const characters = [
   }
 ];
 
-const CharactersList: FC = () => {
+const CharactersList = () => {
   return (
     <>
-      <Typography sx={{ mb: '10px' }} variant="h3" color="#525252">
+      <Typography variant="h3" sx={{ mb: '10px', color: '#525252' }}>
         Characters (200)
       </Typography>
       <SearchForm />
       <Grid container sx={{ mt: '1rem' }} spacing={2}>
         {characters.map((item) => (
-          <CardItem key={item.id} {...item} />
+          <CardItem page="characters" key={item.id} {...item} />
         ))}
       </Grid>
     </>

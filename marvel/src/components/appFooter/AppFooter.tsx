@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 import Typography from '@mui/material/Typography';
@@ -6,9 +5,9 @@ import Link from '@mui/material/Link';
 import Toolbar from '@mui/material/Toolbar';
 import marvelLogo from '../../../public/marvel_logo.svg';
 
-import './appFooter.css';
+import './appFooter.scss';
 
-const AppFooter: FC = () => {
+const AppFooter = () => {
   return (
     <footer className="footer">
       <Toolbar
@@ -29,6 +28,8 @@ const AppFooter: FC = () => {
           href="https://developer.marvel.com/"
           color="white"
           underline="none"
+          target="_blank"
+          rel="noreferrer"
         >
           developer.marvel.com
         </Link>

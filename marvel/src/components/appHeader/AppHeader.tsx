@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { Link as RouterLink, NavLink } from 'react-router-dom';
 
 import AppBar from '@mui/material/AppBar';
@@ -9,9 +8,9 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 
 import marvelLogo from '../../../public/marvel_logo.svg';
-import './appHeader.css';
+import './appHeader.scss';
 
-const AppHeader: FC = () => {
+const AppHeader = () => {
   return (
     <AppBar position="static" sx={{ backgroundColor: '#d90b3e' }}>
       <Toolbar>
@@ -21,7 +20,7 @@ const AppHeader: FC = () => {
           </RouterLink>
         </Typography>
         <Box component="nav">
-          <List sx={{ display: { xs: 'none', sm: 'flex' } }}>
+          <List sx={{ display: { sm: 'flex' } }}>
             <ListItem>
               <NavLink to="/" className="nav-link">
                 Characters

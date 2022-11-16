@@ -17,7 +17,11 @@ const App: FC = () => {
   return (
     <div className="app">
       <AppHeader />
-      <Container sx={{ mt: '1rem', mb: '90px', flex: '1 0 auto' }}>
+      <Container
+        component="main"
+        maxWidth="xl"
+        sx={{ mt: '1rem', mb: '90px', flex: '1 0 auto' }}
+      >
         {element}
       </Container>
       <AppFooter />

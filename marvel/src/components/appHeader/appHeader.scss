@@ -1,6 +1,9 @@
 .nav-link {
   text-decoration: none;
   color: rgb(243, 243, 81);
+  &:hover{
+   text-decoration: underline;
+  }
 }
 .active {
   text-decoration: underline;

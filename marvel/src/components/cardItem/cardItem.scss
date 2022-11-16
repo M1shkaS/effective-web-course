@@ -1,0 +1,21 @@
+.card-item{
+   transition: all .5s;
+   height: 350px;
+   a{
+      text-decoration: none;
+   }
+   img{
+      height: 140px;
+   }
+   h3{
+      font-size:14px ;
+      color:#cd3508;
+      font-weight: 600;
+   }
+   .card-descr{
+      font-size: 14px;
+   }
+   &:hover{
+      transform: translateY(-5px);
+   }
+}

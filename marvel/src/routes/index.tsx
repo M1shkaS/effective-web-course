@@ -1,6 +1,7 @@
 import CharactersList from 'routes/charactersList/CharactersList';
 import ComicsList from 'routes/comicsList/ComicsList';
 import SeriesList from 'routes/seriesList/SeriesList';
+import ErrorMessage from 'components/errorMessage/ErrorMessage';
 
 const routes = [
   {
@@ -15,7 +16,7 @@ const routes = [
     path: '/series',
     element: <SeriesList />
   },
-  { path: '*', element: <div>Not Found</div> }
+  { path: '*', element: <ErrorMessage /> }
 ];
 
 export default routes;

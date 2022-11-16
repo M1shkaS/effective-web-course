@@ -1,17 +1,13 @@
-import { FC } from 'react';
-
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-import './search-form.css';
+import './search-form.scss';
 
-const SearchForm: FC = () => {
+const SearchForm = () => {
   return (
     <div className="search-form">
       <TextField fullWidth id="fullWidth" placeholder="Serach" />
-      <Button variant="contained" sx={{ width: '200px', mr: '25px' }}>
-        Search
-      </Button>
+      <Button variant="contained">Search</Button>
     </div>
   );
 };
