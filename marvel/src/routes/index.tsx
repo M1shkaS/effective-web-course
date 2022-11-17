@@ -3,6 +3,7 @@ import CharactersPage from './charactersPage/CharactersPage';
 import ComicsPage from './comicsPage/ComicsPage';
 import SeriesPage from './seriesPage/SeriesPage';
 import SingleCharacterPage from './singleCharacterPage/SingleCharacterPage';
+import SingleComicPage from './singleComicPage/SingleComicPage';
 
 const routes = [
   {
@@ -23,7 +24,7 @@ const routes = [
   },
   {
     path: '/comics/:id',
-    element: <SingleCharacterPage />
+    element: <SingleComicPage />
   },
   {
     path: '/series',
