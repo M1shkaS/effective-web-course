@@ -4,6 +4,7 @@ import ComicsPage from './comicsPage/ComicsPage';
 import SeriesPage from './seriesPage/SeriesPage';
 import SingleCharacterPage from './singleCharacterPage/SingleCharacterPage';
 import SingleComicPage from './singleComicPage/SingleComicPage';
+import SingleSeriePage from './singleSeriePage/SingleSeriePage';
 
 const routes = [
   {
@@ -29,6 +30,10 @@ const routes = [
   {
     path: '/series',
     element: <SeriesPage />
+  },
+  {
+    path: '/series/:id',
+    element: <SingleSeriePage />
   },
   { path: '*', element: <ErrorMessage /> }
 ];
