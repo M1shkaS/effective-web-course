@@ -11,14 +11,14 @@ import { ICardProps } from 'types/cardProps';
 
 import './CardItem.modules.scss';
 
-const CardItem: FC<ICardProps> = ({ name, description, img }) => {
+const CardItem: FC<ICardProps> = ({ name, description, img, id, page }) => {
   const descr: string = description
     ? `${description.slice(0, 170)}...`
     : 'Извините, данных нет';
 
   return (
     <Grid item className="card-item" xs={6} md={2}>
-      <RouterLink to="#">
+      <RouterLink to={`/${page}/${id}`}>
         <Card sx={{ height: '100%' }}>
           <CardMedia component="img" image={img} alt={name} />
           <CardContent>

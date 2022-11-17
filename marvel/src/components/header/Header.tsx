@@ -22,7 +22,7 @@ const Header = () => {
         <Box component="nav">
           <List sx={{ display: { sm: 'flex' } }}>
             <ListItem>
-              <NavLink to="/" className="nav-link">
+              <NavLink to="/characters" className="nav-link">
                 Characters
               </NavLink>
             </ListItem>

@@ -1,0 +1,9 @@
+.ref-title{
+   font-weight: 600;
+   padding-left: 16px;
+}
+.ref-link{
+   &:hover{
+      color: rgb(202, 202, 202);;
+   }
+}
