@@ -35,7 +35,7 @@ const characters = [
   }
 ];
 
-const CharactersList = () => {
+const CharactersPage = () => {
   return (
     <>
       <Typography variant="h3" sx={{ mb: '10px', color: '#525252' }}>
@@ -51,4 +51,4 @@ const CharactersList = () => {
   );
 };
 
-export default CharactersList;
+export default CharactersPage;

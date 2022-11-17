@@ -27,7 +27,7 @@ const comics = [
   }
 ];
 
-const ComicsList = () => {
+const ComicsPage = () => {
   return (
     <>
       <Typography variant="h3" sx={{ mb: '10px', color: '#525252' }}>
@@ -43,4 +43,4 @@ const ComicsList = () => {
   );
 };
 
-export default ComicsList;
+export default ComicsPage;

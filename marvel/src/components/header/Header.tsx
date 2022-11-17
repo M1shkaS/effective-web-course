@@ -8,9 +8,9 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 
 import marvelLogo from '../../../public/marvel_logo.svg';
-import './appHeader.scss';
+import './Header.modules.scss';
 
-const AppHeader = () => {
+const Header = () => {
   return (
     <AppBar position="static" sx={{ backgroundColor: '#d90b3e' }}>
       <Toolbar>
@@ -43,4 +43,4 @@ const AppHeader = () => {
   );
 };
 
-export default AppHeader;
+export default Header;

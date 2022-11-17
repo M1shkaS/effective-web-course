@@ -34,7 +34,7 @@ const series = [
   }
 ];
 
-const SeriesList = () => {
+const SeriesPage = () => {
   return (
     <>
       <Typography sx={{ mb: '10px', color: '#525252' }} variant="h3">
@@ -50,4 +50,4 @@ const SeriesList = () => {
   );
 };
 
-export default SeriesList;
+export default SeriesPage;

@@ -1,20 +1,20 @@
-import CharactersList from 'routes/charactersList/CharactersList';
-import ComicsList from 'routes/comicsList/ComicsList';
-import SeriesList from 'routes/seriesList/SeriesList';
 import ErrorMessage from 'components/errorMessage/ErrorMessage';
+import CharactersPage from './charactersPage/CharactersPage';
+import ComicsPage from './comicsPage/ComicsPage';
+import SeriesPage from './seriesPage/SeriesPage';
 
 const routes = [
   {
     path: '/',
-    element: <CharactersList />
+    element: <CharactersPage />
   },
   {
     path: '/comics',
-    element: <ComicsList />
+    element: <ComicsPage />
   },
   {
     path: '/series',
-    element: <SeriesList />
+    element: <SeriesPage />
   },
   { path: '*', element: <ErrorMessage /> }
 ];

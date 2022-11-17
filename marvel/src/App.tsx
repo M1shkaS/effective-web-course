@@ -4,10 +4,10 @@ import { useRoutes } from 'react-router-dom';
 
 import routes from 'routes';
 import Container from '@mui/material/Container';
-import AppHeader from './components/appHeader/AppHeader';
-import AppFooter from './components/appFooter/AppFooter';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 
-import './style/style.css';
+import './style/style.scss';
 
 const App: FC = () => {
   const route: RouteObject[] = routes;
@@ -16,7 +16,7 @@ const App: FC = () => {
 
   return (
     <div className="app">
-      <AppHeader />
+      <Header />
       <Container
         component="main"
         maxWidth="xl"
@@ -24,7 +24,7 @@ const App: FC = () => {
       >
         {element}
       </Container>
-      <AppFooter />
+      <Footer />
     </div>
   );
 };

@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 
 import { ICardProps } from 'types/cardProps';
 
-import './cardItem.scss';
+import './CardItem.modules.scss';
 
 const CardItem: FC<ICardProps> = ({ name, description, img }) => {
   const descr: string = description
