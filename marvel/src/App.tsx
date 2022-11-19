@@ -20,7 +20,7 @@ const App: FC = () => {
       <Container
         component="main"
         maxWidth="xl"
-        sx={{ mt: '1rem', mb: '90px', flex: '1 0 auto' }}
+        sx={{ mt: '1rem', flex: '1 0 auto' }}
       >
         {element}
       </Container>

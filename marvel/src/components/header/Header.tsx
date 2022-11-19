@@ -6,11 +6,17 @@ import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
+import Stack from '@mui/material/Stack';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
 
+import { useTheme } from 'hooks/use-theme.hooks';
 import marvelLogo from '../../../public/marvel_logo.svg';
 import './Header.modules.scss';
 
 const Header = () => {
+  const { theme, setTheme } = useTheme();
+
   return (
     <AppBar position="static" sx={{ backgroundColor: '#d90b3e' }}>
       <Toolbar>
@@ -38,6 +44,20 @@ const Header = () => {
             </ListItem>
           </List>
         </Box>
+        <Typography mr="16px">/</Typography>
+        <Stack direction="row" spacing={0}>
+          <FormControlLabel
+            control={<Switch defaultChecked />}
+            label={theme === 'dark' ? '🌙' : '🌞'}
+            onChange={() => {
+              if (theme === 'dark') {
+                setTheme('light');
+              } else {
+                setTheme('dark');
+              }
+            }}
+          />
+        </Stack>
       </Toolbar>
     </AppBar>
   );

@@ -1,9 +1,10 @@
-.ref-title{
-   font-weight: 600;
-   padding-left: 16px;
+.ref-title {
+  font-weight: 600;
+  padding-left: 16px;
+  color: var(--text-color);
 }
-.ref-link{
-   &:hover{
-      color: rgb(202, 202, 202);;
-   }
+.ref-link {
+  &:hover {
+    color: rgb(202, 202, 202);
+  }
 }

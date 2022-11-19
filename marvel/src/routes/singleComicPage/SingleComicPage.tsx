@@ -41,7 +41,7 @@ const SingleComicPage = () => {
       <Grid item xs={12} md={3} height="450px">
         <img src={comic.img} alt={comic.title} className="single-img" />
       </Grid>
-      <Grid item xs={12} md={5}>
+      <Grid item xs={12} md={5} className="character-body">
         <Typography fontWeight="700" variant="h4" component="h3">
           {comic.title}
         </Typography>

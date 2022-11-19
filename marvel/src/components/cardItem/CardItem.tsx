@@ -19,7 +19,7 @@ const CardItem: FC<ICardProps> = ({ name, description, img, id, page }) => {
   return (
     <Grid item className="card-item" xs={6} md={2}>
       <RouterLink to={`/${page}/${id}`}>
-        <Card sx={{ height: '100%' }}>
+        <Card className="card-body" sx={{ height: '100%' }}>
           <CardMedia component="img" image={img} alt={name} />
           <CardContent>
             <Typography gutterBottom variant="h6" component="h3">

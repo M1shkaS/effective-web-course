@@ -2,6 +2,7 @@ import LinksCreation from 'components/linksCreation/LinksCreation';
 
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import './SingleSeriePage.modules.scss';
 
 const serie = {
   title: '1602 (2003 - 2004)',
@@ -52,7 +53,7 @@ const SingleSeriePage = () => {
         <Grid item xs={12} md={3} height="450px">
           <img src={serie.img} alt={serie.title} className="single-img" />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} className="character-body">
           <Typography fontWeight="700" variant="h4" component="h3">
             {serie.title}
           </Typography>

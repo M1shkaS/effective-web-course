@@ -4,6 +4,8 @@ import Grid from '@mui/material/Grid';
 import CardItem from 'components/cardItem/CardItem';
 import SearchForm from 'components/searchForm/SeacrhForm';
 
+import './SeriesPage.modules.scss';
+
 const series = [
   {
     id: 1,
@@ -37,8 +39,11 @@ const series = [
 const SeriesPage = () => {
   return (
     <>
-      <Typography sx={{ mb: '10px', color: '#525252' }} variant="h3">
-        Series (50)
+      <Typography className="page-title" variant="h3" sx={{ mb: '10px' }}>
+        Series
+        <Typography component="span" fontSize="30px">
+          (50)
+        </Typography>
       </Typography>
       <SearchForm />
       <Grid container sx={{ mt: '1rem' }} spacing={2}>

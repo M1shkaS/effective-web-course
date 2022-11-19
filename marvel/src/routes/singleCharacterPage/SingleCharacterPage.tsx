@@ -57,10 +57,17 @@ const SingleCharacterPage = () => {
       </Paper>
       <Grid container mt="1rem" spacing={2} justifyContent="space-between">
         <Grid item className="character-body" xs={12} md={5}>
-          <Typography fontWeight="700" variant="h4" component="h3">
+          <Typography
+            className="item-title"
+            fontWeight="700"
+            variant="h4"
+            component="h3"
+          >
             {character.name}
           </Typography>
-          <Typography variant="body1">{character.description}</Typography>
+          <Typography className="item-descr" variant="body1">
+            {character.description}
+          </Typography>
         </Grid>
         <LinksCreation
           {...{
