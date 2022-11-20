@@ -6,9 +6,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import Stack from '@mui/material/Stack';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
 
 import { useTheme } from 'hooks/use-theme.hooks';
 import marvelLogo from '../../../public/marvel_logo.svg';
@@ -45,10 +42,12 @@ const Header = () => {
           </List>
         </Box>
         <Typography mr="16px">/</Typography>
-        <Stack direction="row" spacing={0}>
-          <FormControlLabel
-            control={<Switch defaultChecked />}
-            label={theme === 'dark' ? '🌙' : '🌞'}
+
+        <label htmlFor="toggle_checkbox">
+          <input
+            type="checkbox"
+            id="toggle_checkbox"
+            checked={theme === 'dark'}
             onChange={() => {
               if (theme === 'dark') {
                 setTheme('light');
@@ -57,7 +56,16 @@ const Header = () => {
               }
             }}
           />
-        </Stack>
+          <div id="star">
+            <div className="star" id="star-1">
+              ★
+            </div>
+            <div className="star" id="star-2">
+              ★
+            </div>
+          </div>
+          <div id="moon" />
+        </label>
       </Toolbar>
     </AppBar>
   );
