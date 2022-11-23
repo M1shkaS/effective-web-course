@@ -7,10 +7,13 @@ import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 
+import { useTheme } from 'hooks/use-theme.hooks';
 import marvelLogo from '../../../public/marvel_logo.svg';
-import './appHeader.scss';
+import './Header.modules.scss';
 
-const AppHeader = () => {
+const Header = () => {
+  const { theme, setTheme } = useTheme();
+
   return (
     <AppBar position="static" sx={{ backgroundColor: '#d90b3e' }}>
       <Toolbar>
@@ -22,7 +25,7 @@ const AppHeader = () => {
         <Box component="nav">
           <List sx={{ display: { sm: 'flex' } }}>
             <ListItem>
-              <NavLink to="/" className="nav-link">
+              <NavLink to="/characters" className="nav-link">
                 Characters
               </NavLink>
             </ListItem>
@@ -38,9 +41,34 @@ const AppHeader = () => {
             </ListItem>
           </List>
         </Box>
+        <Typography mr="16px">/</Typography>
+
+        <label htmlFor="toggle_checkbox">
+          <input
+            type="checkbox"
+            id="toggle_checkbox"
+            checked={theme === 'dark'}
+            onChange={() => {
+              if (theme === 'dark') {
+                setTheme('light');
+              } else {
+                setTheme('dark');
+              }
+            }}
+          />
+          <div id="star">
+            <div className="star" id="star-1">
+              ★
+            </div>
+            <div className="star" id="star-2">
+              ★
+            </div>
+          </div>
+          <div id="moon" />
+        </label>
       </Toolbar>
     </AppBar>
   );
 };
 
-export default AppHeader;
+export default Header;

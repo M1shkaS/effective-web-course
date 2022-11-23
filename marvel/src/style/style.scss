@@ -1,0 +1,52 @@
+* {
+  user-select: none;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background-color: var(--background-color);
+  transition: background-color 200ms linear;
+}
+main {
+  padding: 24px;
+  margin-bottom: 30px;
+  background-color: var(--main-background-color);
+  transition: background-color 200ms linear;
+}
+.logo {
+  width: 100px;
+}
+
+html[data-theme='dark'] {
+  --background-color: #2d3641;
+  --main-background-color: #242a37;
+  --text-color: #ffffff;
+
+  --input-text-color: #646464;
+  --input-placeholder-text-color: #747474;
+  --input-background-color: #f5eeee;
+
+  --card-background-color: #f5eeee;
+
+  --link-color: white;
+}
+html[data-theme='light'] {
+  --background-color: #ffffff;
+  --main-background-color: #ffffff;
+  --text-color: #252525;
+
+  --input-text-color: #252525;
+  --input-placeholder-text-color: #000000;
+  --input-background-color: #ffffff;
+
+  --card-background-color: #ffffff;
+
+  --link-color: rgb(196, 196, 196);
+}

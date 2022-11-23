@@ -4,6 +4,8 @@ import Grid from '@mui/material/Grid';
 import SearchForm from 'components/searchForm/SeacrhForm';
 import CardItem from 'components/cardItem/CardItem';
 
+import './ComicsPage.modules.scss';
+
 const comics = [
   {
     id: 1,
@@ -27,11 +29,14 @@ const comics = [
   }
 ];
 
-const ComicsList = () => {
+const ComicsPage = () => {
   return (
     <>
-      <Typography variant="h3" sx={{ mb: '10px', color: '#525252' }}>
-        Comics (1400)
+      <Typography className="page-title" variant="h3" sx={{ mb: '10px' }}>
+        Comics
+        <Typography component="span" fontSize="30px">
+          (1400)
+        </Typography>
       </Typography>
       <SearchForm />
       <Grid container mt="1rem" spacing={2}>
@@ -43,4 +48,4 @@ const ComicsList = () => {
   );
 };
 
-export default ComicsList;
+export default ComicsPage;

@@ -9,17 +9,17 @@ import Typography from '@mui/material/Typography';
 
 import { ICardProps } from 'types/cardProps';
 
-import './cardItem.scss';
+import './CardItem.modules.scss';
 
-const CardItem: FC<ICardProps> = ({ name, description, img }) => {
+const CardItem: FC<ICardProps> = ({ name, description, img, id, page }) => {
   const descr: string = description
     ? `${description.slice(0, 170)}...`
     : 'Извините, данных нет';
 
   return (
     <Grid item className="card-item" xs={6} md={2}>
-      <RouterLink to="#">
-        <Card sx={{ height: '100%' }}>
+      <RouterLink to={`/${page}/${id}`}>
+        <Card className="card-body" sx={{ height: '100%' }}>
           <CardMedia component="img" image={img} alt={name} />
           <CardContent>
             <Typography gutterBottom variant="h6" component="h3">

@@ -1,0 +1,15 @@
+.search-form {
+  display: flex;
+  gap: 30px;
+  input {
+    background-color: var(--input-background-color);
+    color: var(--input-text-color);
+  }
+  input::placeholder {
+    color: var(--input-placeholder-text-color);
+  }
+  button {
+    margin-right: 25px;
+    width: 200px;
+  }
+}

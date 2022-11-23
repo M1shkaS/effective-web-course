@@ -4,6 +4,8 @@ import Grid from '@mui/material/Grid';
 import CardItem from 'components/cardItem/CardItem';
 import SearchForm from 'components/searchForm/SeacrhForm';
 
+import './CharactersPage.modules.scss';
+
 const characters = [
   {
     id: 1,
@@ -35,11 +37,14 @@ const characters = [
   }
 ];
 
-const CharactersList = () => {
+const CharactersPage = () => {
   return (
     <>
-      <Typography variant="h3" sx={{ mb: '10px', color: '#525252' }}>
-        Characters (200)
+      <Typography className="page-title" variant="h3" sx={{ mb: '10px' }}>
+        Characters
+        <Typography component="span" fontSize="30px">
+          (200)
+        </Typography>
       </Typography>
       <SearchForm />
       <Grid container sx={{ mt: '1rem' }} spacing={2}>
@@ -51,4 +56,4 @@ const CharactersList = () => {
   );
 };
 
-export default CharactersList;
+export default CharactersPage;

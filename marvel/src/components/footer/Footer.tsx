@@ -5,9 +5,9 @@ import Link from '@mui/material/Link';
 import Toolbar from '@mui/material/Toolbar';
 import marvelLogo from '../../../public/marvel_logo.svg';
 
-import './appFooter.scss';
+import './Footer.modules.scss';
 
-const AppFooter = () => {
+const Footer = () => {
   return (
     <footer className="footer">
       <Toolbar
@@ -38,4 +38,4 @@ const AppFooter = () => {
   );
 };
 
-export default AppFooter;
+export default Footer;
