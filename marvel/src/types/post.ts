@@ -1,3 +1,12 @@
+interface Comics {
+  resourceURI: string;
+  name: string;
+}
+interface Series {
+  resourceURI: string;
+  name: string;
+}
+
 export interface Post {
   id: number;
   title: string;
@@ -9,4 +18,13 @@ export interface Post {
 export interface DataPosts {
   totalPosts: number;
   postsList: Post[];
+}
+
+export interface Character {
+  id: number;
+  name: string;
+  description: string;
+  thumbnail: string;
+  comics: Comics[];
+  series: Series[];
 }

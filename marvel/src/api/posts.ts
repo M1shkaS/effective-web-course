@@ -1,8 +1,8 @@
 import axios from 'api/helpers/axios';
 import envs from 'config/environments';
-import { DataPosts } from 'types/post';
+import { DataPosts, Character } from 'types/post';
 
-import { transformItem } from 'utils/transformGetItem';
+import { transformItem, transformChar } from 'utils/transformGetItem';
 
 export default {
   async getPostsList(
@@ -19,5 +19,9 @@ export default {
       postsList: response.data.data.results.map(transformItem)
     };
     return dataPosts;
+  },
+  async getCharacter(charId: string): Promise<Character> {
+    const response = await axios.get(`/characters/${charId}?${envs.apiKey}`);
+    return transformChar(response.data.data.results[0]);
   }
 };
