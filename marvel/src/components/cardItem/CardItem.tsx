@@ -6,18 +6,11 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import { Post } from 'types/post';
 
 import './CardItem.modules.scss';
 
-interface CardProps {
-  id: number;
-  name: string;
-  description: string;
-  img: string;
-  page: string;
-}
-
-const CardItem: FC<CardProps> = ({ name, description, img, id, page }) => {
+const CardItem: FC<Post> = ({ title, description, thumbnail, id, page }) => {
   const descr: string = description
     ? `${description.slice(0, 170)}...`
     : 'Извините, данных нет';
@@ -26,10 +19,10 @@ const CardItem: FC<CardProps> = ({ name, description, img, id, page }) => {
     <Grid item className="card-item" xs={6} md={2}>
       <RouterLink to={`/${page}/${id}`}>
         <Card className="card-body" sx={{ height: '100%' }}>
-          <CardMedia component="img" image={img} alt={name} />
+          <CardMedia component="img" image={thumbnail} alt={title} />
           <CardContent>
             <Typography gutterBottom variant="h6" component="h3">
-              {name}
+              {title}
             </Typography>
             <Typography className="card-descr" variant="body1">
               {descr}
