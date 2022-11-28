@@ -1,3 +1,25 @@
+interface Characters {
+  resourceURI: string;
+  name: string;
+}
+interface Comics {
+  resourceURI: string;
+  name: string;
+}
+interface Series {
+  resourceURI: string;
+  name: string;
+}
+
+export interface Character {
+  id: number;
+  name: string;
+  description: string;
+  thumbnail: string;
+  comics: Comics[];
+  series: Series[];
+}
+
 export interface Post {
   id: number;
   title: string;
