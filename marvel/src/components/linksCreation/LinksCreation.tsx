@@ -7,31 +7,41 @@ import ListItem from '@mui/material/ListItem';
 import Link from '@mui/material/Link';
 import './LinksCreation.modules.scss';
 
-import { ILinksCreationProps } from 'types/LinksCreationProps';
+interface ArrayLinksCreation {
+  name: string;
+  resourceURI: string;
+}
+interface LinksCreationProps {
+  firstListTitle: string;
+  secondListTitle: string;
+  firstArrayLinks: ArrayLinksCreation[];
+  secondArrayLinks: ArrayLinksCreation[];
+}
 
-const LinksCreation: FC<ILinksCreationProps> = ({
+function renderList(list: ArrayLinksCreation[]) {
+  return list.map((item: ArrayLinksCreation) => {
+    return (
+      <ListItem key={item.name}>
+        <Link
+          href={item.resourceURI}
+          target="_blank"
+          rel="noreferrer"
+          className="ref-link"
+          underline="none"
+        >
+          {item.name}
+        </Link>
+      </ListItem>
+    );
+  });
+}
+
+const LinksCreation: FC<LinksCreationProps> = ({
   firstListTitle,
   secondListTitle,
   firstArrayLinks,
   secondArrayLinks
 }) => {
-  function renderList(list: any) {
-    return list.map((item: { name: string; resourceURI: string }) => {
-      return (
-        <ListItem key={item.name}>
-          <Link
-            href={item.resourceURI}
-            target="_blank"
-            rel="noreferrer"
-            className="ref-link"
-            underline="none"
-          >
-            {item.name}
-          </Link>
-        </ListItem>
-      );
-    });
-  }
   return (
     <>
       <Grid item xs={12} md={2}>

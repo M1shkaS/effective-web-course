@@ -7,11 +7,17 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-import { ICardProps } from 'types/cardProps';
-
 import './CardItem.modules.scss';
 
-const CardItem: FC<ICardProps> = ({ name, description, img, id, page }) => {
+interface CardProps {
+  id: number;
+  name: string;
+  description: string;
+  img: string;
+  page: string;
+}
+
+const CardItem: FC<CardProps> = ({ name, description, img, id, page }) => {
   const descr: string = description
     ? `${description.slice(0, 170)}...`
     : 'Извините, данных нет';
