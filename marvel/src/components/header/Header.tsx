@@ -42,10 +42,10 @@ const Header = () => {
           </List>
         </Box>
         <Typography mr="16px">/</Typography>
-
         <label htmlFor="toggle_checkbox">
           <input
             type="checkbox"
+            className="toggle__checkbox"
             id="toggle_checkbox"
             checked={theme === 'dark'}
             onChange={() => {
@@ -56,15 +56,11 @@ const Header = () => {
               }
             }}
           />
-          <div id="star">
-            <div className="star" id="star-1">
-              ★
-            </div>
-            <div className="star" id="star-2">
-              ★
-            </div>
+          <div className="star__wrapper">
+            <div className="star__first">★</div>
+            <div className="star__second">★</div>
           </div>
-          <div id="moon" />
+          <div className="moon" id="moon" />
         </label>
       </Toolbar>
     </AppBar>
