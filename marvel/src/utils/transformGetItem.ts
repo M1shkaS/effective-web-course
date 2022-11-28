@@ -38,3 +38,19 @@ export const transformComic = (comic: any) => {
     series: [{ ...comic.series.items }]
   };
 };
+export const transformSerie = (serie: any) => {
+  const descr: string = serie.description
+    ? serie.description
+    : 'Извините, данных нет';
+  return {
+    id: serie.id,
+    title: serie.title,
+    description: descr,
+    thumbnail: `${serie.thumbnail.path}.${serie.thumbnail.extension}`,
+    startYear: serie.startYear,
+    endYear: serie.endYear,
+    type: serie.type || 'no type',
+    characters: [...serie.characters.items],
+    comics: [...serie.comics.items]
+  };
+};

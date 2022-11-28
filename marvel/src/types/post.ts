@@ -32,6 +32,18 @@ export interface Comic {
   series: Series[];
 }
 
+export interface Serie {
+  id: number;
+  title: string;
+  description: string;
+  thumbnail: string;
+  startYear: number;
+  endYear: number;
+  type: string;
+  characters: Characters[];
+  comics: Comics[];
+}
+
 export interface Post {
   id: number;
   title: string;

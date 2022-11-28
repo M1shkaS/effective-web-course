@@ -1,11 +1,12 @@
 import axios from 'api/helpers/axios';
 
-import { DataPosts, Character, Comic } from 'types/post';
+import { DataPosts, Character, Comic, Serie } from 'types/post';
 
 import {
   transformItem,
   transformChar,
-  transformComic
+  transformComic,
+  transformSerie
 } from 'utils/transformGetItem';
 
 import envs from 'config/environments';
@@ -33,5 +34,9 @@ export default {
   async getComic(comicId: string): Promise<Comic> {
     const response = await axios.get(`/comics/${comicId}?${envs.apiKey}`);
     return transformComic(response.data.data.results[0]);
+  },
+  async getSerie(serieId: string): Promise<Serie> {
+    const response = await axios.get(`/series/${serieId}?${envs.apiKey}`);
+    return transformSerie(response.data.data.results[0]);
   }
 };
