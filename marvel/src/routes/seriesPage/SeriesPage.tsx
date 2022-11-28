@@ -1,62 +1,46 @@
+import { useEffect, useState } from 'react';
+
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import { Pagination, Stack } from '@mui/material';
 
 import CardItem from 'components/cardItem/CardItem';
 import SearchForm from 'components/searchForm/SeacrhForm';
 
 import './SeriesPage.modules.scss';
+import { observer } from 'mobx-react-lite';
+import postsStore from 'stores/PostsStore';
+import setListContent from 'utils/setListContent';
+import { Post } from 'types/post';
 
-const series = [
-  {
-    id: 1,
-    title: 'Black Panther: Wakanda Forever',
-    description:
-      'Queen Ramonda (Angela Bassett), Shuri (Letitia Wright), M’Baku (Winston Duke), Okoye (Danai Gurira) and the Dora Milaje (including Florence Kasumba)',
-    thumbnail:
-      'https://terrigen-cdn-dev.marvel.com/content/prod/1x/blackpantherwakandaforever_lob_crd_05.jpg'
-  },
-  {
-    id: 2,
-    title: 'Thor: Love and Thunder',
-    description:
-      'Marvel Studios’ “Thor: Love and Thunder” finds the God of Thunder on a journey unlike anything he’s ever faced—one of self-discovery. But his efforts are interrupted by a galactic killer known as Gorr the God Butcher, who seeks the extinction of the gods',
-    thumbnail:
-      'https://terrigen-cdn-dev.marvel.com/content/prod/1x/thorloveandthunder_lob_crd_04.jpg'
-  },
-  {
-    id: 3,
-    title: 'Spider-Man: No Way Home',
-    description: '',
-    thumbnail:
-      'https://terrigen-cdn-dev.marvel.com/content/prod/1x/spider-mannowayhome_lob_crd_03.jpg'
-  },
-  {
-    id: 4,
-    title: 'Eternals',
-    description:
-      'Marvel Studios Eternals features an exciting new team of Super Heroes in the Marvel Cinematic Universe, ancient aliens who have been living on Earth in secret for thousands of years.',
-    thumbnail:
-      'https://terrigen-cdn-dev.marvel.com/content/prod/1x/eternals_lob_crd_06.jpg'
-  }
-];
+function renderList(posts: Post[]): any {
+  return posts.map((item) => (
+    <CardItem page="series" key={item.id} {...item} />
+  ));
+}
 
-const SeriesPage = () => {
+const SeriesPage = observer(() => {
+  const { process, posts, limit, totalPosts, getPostsList } = postsStore;
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    getPostsList('series', offset);
+  }, []);
+
   return (
     <>
       <Typography className="page-title" variant="h3" sx={{ mb: '10px' }}>
         Series
         <Typography component="span" fontSize="30px">
-          (50)
+          {`(${totalPosts})`}
         </Typography>
       </Typography>
       <SearchForm />
       <Grid container sx={{ mt: '1rem' }} spacing={2}>
-        {series.map((item) => (
-          <CardItem page="series" key={item.id} {...item} />
-        ))}
+        {setListContent(process, () => renderList(posts))}
       </Grid>
     </>
   );
-};
+});
 
 export default SeriesPage;
