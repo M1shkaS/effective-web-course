@@ -12,19 +12,6 @@ interface Characters {
   name: string;
 }
 
-export interface Post {
-  id: number;
-  title: string;
-  description: string;
-  thumbnail: string;
-  page?: string;
-}
-
-export interface DataPosts {
-  totalPosts: number;
-  postsList: Post[];
-}
-
 export interface Character {
   id: number;
   name: string;
@@ -44,4 +31,29 @@ export interface Comic {
   language: string;
   characters: Characters[];
   series: Series[];
+}
+
+export interface Serie {
+  id: number;
+  title: string;
+  description: string;
+  thumbnail: string;
+  startYear: number;
+  endYear: number;
+  type: string;
+  characters: Characters[];
+  comics: Comics[];
+}
+
+export interface Post {
+  id: number;
+  title: string;
+  description: string;
+  thumbnail: string;
+  page?: string;
+}
+
+export interface DataPosts {
+  totalPosts: number;
+  postsList: Post[];
 }
