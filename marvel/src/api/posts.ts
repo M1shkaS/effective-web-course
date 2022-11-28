@@ -25,6 +25,38 @@ export default {
     };
     return dataPosts;
   },
+  async getPostsByNameStartsWith(
+    listName: string,
+    nameStartsWith: string,
+    limit: number,
+    offset: number
+  ): Promise<DataPosts> {
+    const response = await axios.get(
+      `/${listName}?nameStartsWith=${nameStartsWith}&limit=${limit}&offset=${offset}&${envs.apiKey}`
+    );
+
+    const dataPosts = {
+      totalPosts: response.data.data.total,
+      postsList: response.data.data.results.map(transformItem)
+    };
+
+    return dataPosts;
+  },
+  async getPostsByTitleStartsWith(
+    listName: string,
+    titleStartsWith: string,
+    limit: number,
+    offset: number
+  ): Promise<DataPosts> {
+    const response = await axios.get(
+      `/${listName}?titleStartsWith=${titleStartsWith}&limit=${limit}&offset=${offset}&${envs.apiKey}`
+    );
+    const dataPosts = {
+      totalPosts: response.data.data.total,
+      postsList: response.data.data.results.map(transformItem)
+    };
+    return dataPosts;
+  },
   async getCharacter(charId: string): Promise<Character> {
     const response = await axios.get(`/characters/${charId}?${envs.apiKey}`);
     return transformChar(response.data.data.results[0]);
