@@ -7,6 +7,11 @@ interface Series {
   name: string;
 }
 
+interface Characters {
+  resourceURI: string;
+  name: string;
+}
+
 export interface Post {
   id: number;
   title: string;
@@ -26,5 +31,17 @@ export interface Character {
   description: string;
   thumbnail: string;
   comics: Comics[];
+  series: Series[];
+}
+
+export interface Comic {
+  id: number;
+  title: string;
+  description: string;
+  thumbnail: string;
+  pageCount: string;
+  price: string;
+  language: string;
+  characters: Characters[];
   series: Series[];
 }
