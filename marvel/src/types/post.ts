@@ -20,6 +20,18 @@ export interface Character {
   series: Series[];
 }
 
+export interface Comic {
+  id: number;
+  title: string;
+  description: string;
+  thumbnail: string;
+  pageCount: string;
+  price: string;
+  language: string;
+  characters: Characters[];
+  series: Series[];
+}
+
 export interface Post {
   id: number;
   title: string;

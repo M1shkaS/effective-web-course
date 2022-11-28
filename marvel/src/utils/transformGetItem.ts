@@ -20,3 +20,21 @@ export const transformChar = (char: any) => {
     series: [...char.series.items]
   };
 };
+export const transformComic = (comic: any) => {
+  const descr: string = comic.description
+    ? comic.description
+    : 'Извините, данных нет';
+  return {
+    id: comic.id,
+    title: comic.title,
+    description: descr,
+    pageCount: comic.pageCount
+      ? `${comic.pageCount} pages.`
+      : 'No information about the number of pages',
+    price: comic.prices.price ? `${comic.prices.price}$` : 'not available',
+    thumbnail: `${comic.thumbnail.path}.${comic.thumbnail.extension}`,
+    language: comic.textObjects.language || 'en-us',
+    characters: [...comic.characters.items],
+    series: [{ ...comic.series.items }]
+  };
+};
