@@ -20,7 +20,16 @@ function renderList(posts: Post[]): any {
 }
 
 const CharactersPage = observer(() => {
-  const { process, posts, totalPosts, limit, getPostsList } = postsStore;
+  const {
+    process,
+    posts,
+    totalPosts,
+    limit,
+    nameStartsWith,
+    typeSearchRequest,
+    getPostsList,
+    getPostsByNameStartsWith
+  } = postsStore;
   const [page, setPage] = useState(1);
   const [offset, setOffset] = useState(0);
 
@@ -36,7 +45,7 @@ const CharactersPage = observer(() => {
           {`(${totalPosts})`}
         </Typography>
       </Typography>
-      <SearchForm />
+      <SearchForm page="characters" />
       <Grid container sx={{ mt: '1rem' }} spacing={2}>
         {setListContent(process, () => renderList(posts))}
       </Grid>
@@ -55,7 +64,15 @@ const CharactersPage = observer(() => {
             onChange={(_, num) => {
               setPage(num);
               setOffset(num * limit - limit);
-              getPostsList('characters', num * limit - limit);
+              if (typeSearchRequest) {
+                getPostsByNameStartsWith(
+                  'characters',
+                  nameStartsWith,
+                  num * limit - limit
+                );
+              } else {
+                getPostsList('characters', num * limit - limit);
+              }
             }}
             variant="outlined"
             color="primary"

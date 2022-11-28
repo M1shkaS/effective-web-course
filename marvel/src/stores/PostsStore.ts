@@ -15,6 +15,12 @@ class PostsStore {
   limit: number = 24;
 
   @observable
+  nameStartsWith: string = '';
+
+  @observable
+  typeSearchRequest: string = '';
+
+  @observable
   process: string = 'loading';
 
   constructor() {
@@ -37,6 +43,63 @@ class PostsStore {
       runInAction(() => {
         this.posts = dataPosts.postsList;
         this.totalPosts = dataPosts.totalPosts;
+        this.typeSearchRequest = '';
+        this.process = 'confirmed';
+      });
+    } catch (error) {
+      this.process = 'error';
+      throw error;
+    }
+  };
+
+  @action
+  getPostsByNameStartsWith = async (
+    listName: string,
+    nameStartsWith: string,
+    offset: number
+  ): Promise<void> => {
+    try {
+      this.process = 'loading';
+      const dataPosts = await api.posts.getPostsByNameStartsWith(
+        listName,
+        nameStartsWith,
+        this.limit,
+        offset
+      );
+
+      runInAction(() => {
+        this.posts = dataPosts.postsList;
+        this.totalPosts = dataPosts.totalPosts;
+        this.typeSearchRequest = listName;
+        this.nameStartsWith = nameStartsWith;
+        this.process = 'confirmed';
+      });
+    } catch (error) {
+      this.process = 'error';
+      throw error;
+    }
+  };
+
+  @action
+  getPostsByTitleStartsWith = async (
+    listName: string,
+    titleStartsWith: string,
+    offset: number
+  ): Promise<void> => {
+    try {
+      this.process = 'loading';
+      const dataPosts = await api.posts.getPostsByTitleStartsWith(
+        listName,
+        titleStartsWith,
+        this.limit,
+        offset
+      );
+
+      runInAction(() => {
+        this.posts = dataPosts.postsList;
+        this.totalPosts = dataPosts.totalPosts;
+        this.typeSearchRequest = listName;
+        this.nameStartsWith = titleStartsWith;
         this.process = 'confirmed';
       });
     } catch (error) {
