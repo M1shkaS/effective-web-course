@@ -21,7 +21,8 @@ function renderList(posts: Post[]): any {
 }
 
 const ComicsPage = observer(() => {
-  const { process, posts, totalPosts, getPostsList } = postsStore;
+  const { process, posts, limit, totalPosts, getPostsList } = postsStore;
+  const [page, setPage] = useState(1);
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
@@ -40,6 +41,28 @@ const ComicsPage = observer(() => {
       <Grid container sx={{ mt: '1rem' }} spacing={2}>
         {setListContent(process, () => renderList(posts))}
       </Grid>
+      {process === 'loading' ? null : (
+        <Stack spacing={2}>
+          <Pagination
+            sx={{
+              marginY: 3,
+              marginX: 'auto',
+              backgroundColor: 'white',
+              padding: '15px',
+              borderRadius: '15px'
+            }}
+            count={Math.ceil(totalPosts / limit)}
+            page={page}
+            onChange={(_, num) => {
+              setPage(num);
+              setOffset(num * limit - limit);
+              getPostsList('comics', num * limit - limit);
+            }}
+            variant="outlined"
+            color="primary"
+          />
+        </Stack>
+      )}
     </>
   );
 });
