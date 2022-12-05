@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
@@ -25,14 +25,14 @@ const SeriesPage = () => {
     process,
     posts,
     limit,
+    offset,
     totalPosts,
     nameStartsWith,
     typeSearchRequest,
     getPostsList,
     getPostsByTitleStartsWith
   } = postsStore;
-  const [page, setPage] = useState(1);
-  const [offset, setOffset] = useState(0);
+
   useEffect(() => {
     getPostsList('series', 0);
   }, []);
@@ -60,10 +60,8 @@ const SeriesPage = () => {
               borderRadius: '15px'
             }}
             count={Math.ceil(totalPosts / limit)}
-            page={page}
+            page={offset / limit + 1}
             onChange={(_, num) => {
-              setPage(num);
-              setOffset(num * limit - limit);
               if (typeSearchRequest) {
                 getPostsByTitleStartsWith(
                   'series',

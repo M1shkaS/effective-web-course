@@ -12,6 +12,9 @@ class PostsStore {
   totalPosts: number = 0;
 
   @observable
+  offset: number = 0;
+
+  @observable
   limit: number = 24;
 
   @observable
@@ -44,6 +47,7 @@ class PostsStore {
         this.posts = dataPosts.postsList;
         this.totalPosts = dataPosts.totalPosts;
         this.typeSearchRequest = '';
+        this.offset = offset;
         this.process = 'confirmed';
       });
     } catch (error) {
@@ -72,6 +76,7 @@ class PostsStore {
         this.totalPosts = dataPosts.totalPosts;
         this.typeSearchRequest = listName;
         this.nameStartsWith = nameStartsWith;
+        this.offset = offset;
         this.process = 'confirmed';
       });
     } catch (error) {
@@ -100,6 +105,7 @@ class PostsStore {
         this.totalPosts = dataPosts.totalPosts;
         this.typeSearchRequest = listName;
         this.nameStartsWith = titleStartsWith;
+        this.offset = offset;
         this.process = 'confirmed';
       });
     } catch (error) {

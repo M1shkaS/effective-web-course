@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import Link from '@mui/material/Link';
 
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -19,23 +18,20 @@ interface LinksCreationProps {
   secondArrayLinks: ArrayLinksCreation[];
 }
 
-function renderList(list: ArrayLinksCreation[]) {
+const renderList = (list: ArrayLinksCreation[]) => {
   return list.map((item: ArrayLinksCreation) => {
+    const resourceURIArr = item.resourceURI.split('/');
+    const page: string = resourceURIArr[resourceURIArr.length - 2];
+    const pageId: string = resourceURIArr[resourceURIArr.length - 1];
     return (
       <ListItem key={item.name}>
-        <Link
-          href={item.resourceURI}
-          target="_blank"
-          rel="noreferrer"
-          className="ref-link"
-          underline="none"
-        >
+        <RouterLink to={`/${page}/${pageId}`} className={classes.Link}>
           {item.name}
-        </Link>
+        </RouterLink>
       </ListItem>
     );
   });
-}
+};
 
 const LinksCreation: FC<LinksCreationProps> = ({
   firstListTitle,
