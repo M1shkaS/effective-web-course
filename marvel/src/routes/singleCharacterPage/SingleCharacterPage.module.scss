@@ -1,0 +1,10 @@
+@use '../../../src/style/variables';
+
+.Img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.Body {
+  color: variables.$text-color;
+}

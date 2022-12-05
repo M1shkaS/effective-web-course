@@ -9,7 +9,7 @@ import ListItem from '@mui/material/ListItem';
 
 import { useTheme } from 'hooks/use-theme.hooks';
 import marvelLogo from '../../../public/marvel_logo.svg';
-import './Header.modules.scss';
+import classes from './Header.module.scss';
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
@@ -25,19 +25,13 @@ const Header = () => {
         <Box component="nav">
           <List sx={{ display: { sm: 'flex' } }}>
             <ListItem>
-              <NavLink to="/characters" className="nav-link">
-                Characters
-              </NavLink>
+              <NavLink to="/characters">Characters</NavLink>
             </ListItem>
             <ListItem>
-              <NavLink to="/comics" className="nav-link">
-                Comics
-              </NavLink>
+              <NavLink to="/comics">Comics</NavLink>
             </ListItem>
             <ListItem>
-              <NavLink to="/series" className="nav-link">
-                Series
-              </NavLink>
+              <NavLink to="/series">Series</NavLink>
             </ListItem>
           </List>
         </Box>
@@ -46,9 +40,9 @@ const Header = () => {
         <label htmlFor="toggle_checkbox">
           <input
             type="checkbox"
-            className="toggle__checkbox"
-            id="toggle_checkbox"
+            className={classes.Checkbox}
             checked={theme === 'dark'}
+            id="toggle_checkbox"
             onChange={() => {
               if (theme === 'dark') {
                 setTheme('light');
@@ -57,11 +51,11 @@ const Header = () => {
               }
             }}
           />
-          <div className="star__wrapper">
-            <div className="star__first">★</div>
-            <div className="star__second">★</div>
+          <div className={classes.Wrapper}>
+            <div className={classes.First}>★</div>
+            <div className={classes.Second}>★</div>
           </div>
-          <div className="moon" id="moon" />
+          <div className={classes.Moon} />
         </label>
       </Toolbar>
     </AppBar>

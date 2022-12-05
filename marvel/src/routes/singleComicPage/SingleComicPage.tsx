@@ -1,16 +1,16 @@
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
-import './SingleComicPage.modules.scss';
-
-import LinksCreation from 'components/linksCreation/LinksCreation';
+import LinksCreation from 'components/LinksCreation/LinksCreation';
 import comicStore from 'stores/ComicStore';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import Spinner from 'components/spinner/Spinner';
+import Spinner from 'components/Spinner/Spinner';
 import { observer } from 'mobx-react-lite';
 
-const SingleComicPage = observer(() => {
+import classes from './SingleComicPage.module.scss';
+
+const SingleComicPage = () => {
   const { id } = useParams();
   const { process, comic, getComic } = comicStore;
 
@@ -29,10 +29,10 @@ const SingleComicPage = observer(() => {
             <img
               src={comic.thumbnail}
               alt={comic.title}
-              className="single-img"
+              className={classes.Img}
             />
           </Grid>
-          <Grid item xs={12} md={5} className="character-body">
+          <Grid item xs={12} md={5} className={classes.Body}>
             <Typography fontWeight="700" variant="h4" component="h3">
               {comic.title}
             </Typography>
@@ -70,6 +70,6 @@ const SingleComicPage = observer(() => {
       )}
     </>
   );
-});
+};
 
-export default SingleComicPage;
+export default observer(SingleComicPage);

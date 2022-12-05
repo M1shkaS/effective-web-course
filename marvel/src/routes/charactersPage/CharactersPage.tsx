@@ -4,22 +4,23 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import { Pagination, Stack } from '@mui/material';
 
-import CardItem from 'components/cardItem/CardItem';
-import SearchForm from 'components/searchForm/SeacrhForm';
+import CardItem from 'components/СardItem/CardItem';
+import SearchForm from 'components/SearchForm/SeacrhForm';
 
-import './CharactersPage.modules.scss';
 import { observer } from 'mobx-react-lite';
 import postsStore from 'stores/PostsStore';
 import setListContent from 'utils/setListContent';
 import { Post } from 'types/post';
 
-function renderList(posts: Post[]): any {
-  return posts.map((item) => (
+import classes from './CharactersPage.module.scss';
+
+const renderList: any = (posts: Post[]) => {
+  return posts.map((item: Post) => (
     <CardItem page="characters" key={item.id} {...item} />
   ));
-}
+};
 
-const CharactersPage = observer(() => {
+const CharactersPage = () => {
   const {
     process,
     posts,
@@ -34,15 +35,15 @@ const CharactersPage = observer(() => {
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
-    getPostsList('characters', offset);
+    getPostsList('characters', 0);
   }, []);
 
   return (
     <>
-      <Typography className="page-title" variant="h3" sx={{ mb: '10px' }}>
+      <Typography className={classes.Title} variant="h3" sx={{ mb: '10px' }}>
         Characters
         <Typography component="span" fontSize="30px">
-          {`(${totalPosts})`}
+          ({totalPosts})
         </Typography>
       </Typography>
       <SearchForm page="characters" />
@@ -81,6 +82,6 @@ const CharactersPage = observer(() => {
       )}
     </>
   );
-});
+};
 
-export default CharactersPage;
+export default observer(CharactersPage);

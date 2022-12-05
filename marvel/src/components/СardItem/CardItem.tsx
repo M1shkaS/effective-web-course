@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 
 import { Post } from 'types/post';
 
-import './CardItem.modules.scss';
+import classes from './CardItem.module.scss';
 
 const CardItem: FC<Post> = ({ title, description, thumbnail, id, page }) => {
   const descr: string = description
@@ -17,15 +17,15 @@ const CardItem: FC<Post> = ({ title, description, thumbnail, id, page }) => {
     : 'Извините, данных нет';
 
   return (
-    <Grid item className="card-item" xs={6} md={2}>
+    <Grid item className={classes.Card} xs={6} md={2}>
       <RouterLink to={`/${page}/${id}`}>
-        <Card className="card-body" sx={{ height: '100%' }}>
+        <Card sx={{ height: '100%' }}>
           <CardMedia component="img" image={thumbnail} alt={title} />
           <CardContent>
-            <Typography gutterBottom variant="h6" component="h3">
+            <Typography gutterBottom component="h3" className={classes.Title}>
               {title}
             </Typography>
-            <Typography className="card-descr" variant="body1">
+            <Typography className={classes.Descr} variant="body2">
               {descr}
             </Typography>
           </CardContent>

@@ -5,11 +5,11 @@ import Link from '@mui/material/Link';
 import Toolbar from '@mui/material/Toolbar';
 import marvelLogo from '../../../public/marvel_logo.svg';
 
-import './Footer.modules.scss';
+import classes from './Footer.module.scss';
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className={classes.footer}>
       <Toolbar
         sx={{
           flexDirection: 'column',

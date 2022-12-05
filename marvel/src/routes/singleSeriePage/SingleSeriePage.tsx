@@ -1,15 +1,16 @@
-import LinksCreation from 'components/linksCreation/LinksCreation';
+import LinksCreation from 'components/LinksCreation/LinksCreation';
 
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import './SingleSeriePage.modules.scss';
 import { useParams } from 'react-router-dom';
 import serieStore from 'stores/SerieStore';
 import { useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
-import Spinner from 'components/spinner/Spinner';
+import Spinner from 'components/Spinner/Spinner';
 
-const SingleSeriePage = observer(() => {
+import classes from './SingleSeriePage.module.scss';
+
+const SingleSeriePage = () => {
   const { id } = useParams();
   const { process, serie, getSerie } = serieStore;
 
@@ -28,10 +29,10 @@ const SingleSeriePage = observer(() => {
               <img
                 src={serie.thumbnail}
                 alt={serie.title}
-                className="single-img"
+                className={classes.Img}
               />
             </Grid>
-            <Grid item xs={12} md={6} className="character-body">
+            <Grid item xs={12} md={6} className={classes.Body}>
               <Typography fontWeight="700" variant="h4" component="h3">
                 {serie.title}
               </Typography>
@@ -72,6 +73,6 @@ const SingleSeriePage = observer(() => {
       )}
     </>
   );
-});
+};
 
-export default SingleSeriePage;
+export default observer(SingleSeriePage);

@@ -3,19 +3,19 @@ import './Spinner.modules.scss';
 const Spinner = () => {
   return (
     <div className="windows8">
-      <div className="wBall" id="wBall_1">
+      <div className="wBall wBall_1">
         <div className="wInnerBall" />
       </div>
-      <div className="wBall" id="wBall_2">
+      <div className="wBall wBall_2">
         <div className="wInnerBall" />
       </div>
-      <div className="wBall" id="wBall_3">
+      <div className="wBall wBall_3">
         <div className="wInnerBall" />
       </div>
-      <div className="wBall" id="wBall_4">
+      <div className="wBall wBall_4">
         <div className="wInnerBall" />
       </div>
-      <div className="wBall" id="wBall_5">
+      <div className="wBall wBall_5">
         <div className="wInnerBall" />
       </div>
     </div>

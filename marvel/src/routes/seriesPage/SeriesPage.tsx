@@ -4,22 +4,23 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import { Pagination, Stack } from '@mui/material';
 
-import CardItem from 'components/cardItem/CardItem';
-import SearchForm from 'components/searchForm/SeacrhForm';
+import CardItem from 'components/СardItem/CardItem';
+import SearchForm from 'components/SearchForm/SeacrhForm';
 
-import './SeriesPage.modules.scss';
 import { observer } from 'mobx-react-lite';
 import postsStore from 'stores/PostsStore';
 import setListContent from 'utils/setListContent';
 import { Post } from 'types/post';
 
-function renderList(posts: Post[]): any {
+import classes from './SeriesPage.module.scss';
+
+const renderList: any = (posts: Post[]) => {
   return posts.map((item) => (
     <CardItem page="series" key={item.id} {...item} />
   ));
-}
+};
 
-const SeriesPage = observer(() => {
+const SeriesPage = () => {
   const {
     process,
     posts,
@@ -32,17 +33,16 @@ const SeriesPage = observer(() => {
   } = postsStore;
   const [page, setPage] = useState(1);
   const [offset, setOffset] = useState(0);
-
   useEffect(() => {
-    getPostsList('series', offset);
+    getPostsList('series', 0);
   }, []);
 
   return (
     <>
-      <Typography className="page-title" variant="h3" sx={{ mb: '10px' }}>
+      <Typography className={classes.Title} variant="h3" sx={{ mb: '10px' }}>
         Series
         <Typography component="span" fontSize="30px">
-          {`(${totalPosts})`}
+          ({totalPosts})
         </Typography>
       </Typography>
       <SearchForm page="series" />
@@ -81,6 +81,6 @@ const SeriesPage = observer(() => {
       )}
     </>
   );
-});
+};
 
-export default SeriesPage;
+export default observer(SeriesPage);

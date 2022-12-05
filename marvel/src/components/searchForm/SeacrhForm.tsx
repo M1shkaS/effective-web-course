@@ -5,10 +5,9 @@ import {
   Form,
   ErrorMessage as FormikErrorMessage
 } from 'formik';
-import * as Yup from 'yup';
 
-import './Searchform.modules.scss';
 import postsStore from 'stores/PostsStore';
+import classes from './Searchform.module.scss';
 
 interface SearchFormProps {
   page: string;
@@ -17,14 +16,11 @@ interface SearchFormProps {
 const SearchForm: FC<SearchFormProps> = ({ page }) => {
   const { getPostsByNameStartsWith, getPostsByTitleStartsWith } = postsStore;
   return (
-    <div className="search-form">
+    <div>
       <Formik
         initialValues={{
           nameStartsWith: ''
         }}
-        validationSchema={Yup.object({
-          nameStartsWith: Yup.string().required('Обязательное поле')
-        })}
         onSubmit={({ nameStartsWith }) => {
           if (page === 'characters') {
             getPostsByNameStartsWith(page, nameStartsWith, 0);
@@ -33,9 +29,9 @@ const SearchForm: FC<SearchFormProps> = ({ page }) => {
           }
         }}
       >
-        <Form className="search-form">
+        <Form className={classes.Form}>
           <Field type="text" name="nameStartsWith" placeholder="Enter title" />
-          <button className="search-form__button" type="submit">
+          <button className={classes.Button} type="submit">
             Search
           </button>
           <FormikErrorMessage className="error" name="text" component="div" />

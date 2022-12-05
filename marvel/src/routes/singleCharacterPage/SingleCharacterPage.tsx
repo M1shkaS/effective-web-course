@@ -1,18 +1,19 @@
 import { useParams } from 'react-router-dom';
 
-import LinksCreation from 'components/linksCreation/LinksCreation';
+import LinksCreation from 'components/LinksCreation/LinksCreation';
 
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
-import './SingleCharacterPage.modules.scss';
 import { useEffect } from 'react';
 import characterStore from 'stores/CharacterStore';
 import { observer } from 'mobx-react-lite';
-import Spinner from 'components/spinner/Spinner';
+import Spinner from 'components/Spinner/Spinner';
 
-const SingleCharacterPage = observer(() => {
+import classes from './SingleCharacterPage.module.scss';
+
+const SingleCharacterPage = () => {
   const { id } = useParams();
   const { process, character, getCharacter } = characterStore;
 
@@ -32,13 +33,13 @@ const SingleCharacterPage = observer(() => {
             }}
           >
             <img
-              className="character-page-img"
+              className={classes.Img}
               src={character.thumbnail}
               alt={character.name}
             />
           </Paper>
           <Grid container mt="1rem" spacing={2} justifyContent="space-between">
-            <Grid item className="character-body" xs={12} md={5}>
+            <Grid item className={classes.Body} xs={12} md={5}>
               <Typography
                 className="item-title"
                 fontWeight="700"
@@ -64,6 +65,6 @@ const SingleCharacterPage = observer(() => {
       )}
     </>
   );
-});
+};
 
-export default SingleCharacterPage;
+export default observer(SingleCharacterPage);

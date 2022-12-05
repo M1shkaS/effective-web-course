@@ -1,5 +1,5 @@
-import ErrorMessage from 'components/errorMessage/ErrorMessage';
-import Spinner from 'components/spinner/Spinner';
+import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
+import Spinner from 'components/Spinner/Spinner';
 import { FC } from 'react';
 
 const setListContent = (process: string, Component: FC) => {

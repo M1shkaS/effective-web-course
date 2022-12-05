@@ -1,10 +1,10 @@
-import ErrorMessage from 'components/errorMessage/ErrorMessage';
-import CharactersPage from './charactersPage/CharactersPage';
-import ComicsPage from './comicsPage/ComicsPage';
-import SeriesPage from './seriesPage/SeriesPage';
-import SingleCharacterPage from './singleCharacterPage/SingleCharacterPage';
-import SingleComicPage from './singleComicPage/SingleComicPage';
-import SingleSeriePage from './singleSeriePage/SingleSeriePage';
+import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
+import CharactersPage from './CharactersPage/CharactersPage';
+import ComicsPage from './ComicsPage/ComicsPage';
+import SeriesPage from './SeriesPage/SeriesPage';
+import SingleCharacterPage from './SingleCharacterPage/SingleCharacterPage';
+import SingleComicPage from './SingleComicPage/SingleComicPage';
+import SingleSeriePage from './SingleSeriePage/SingleSeriePage';
 
 const routes = [
   {

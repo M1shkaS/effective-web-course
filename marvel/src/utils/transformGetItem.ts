@@ -35,7 +35,7 @@ export const transformComic = (comic: any) => {
     thumbnail: `${comic.thumbnail.path}.${comic.thumbnail.extension}`,
     language: comic.textObjects.language || 'en-us',
     characters: [...comic.characters.items],
-    series: [{ ...comic.series.items }]
+    series: [comic.series]
   };
 };
 export const transformSerie = (serie: any) => {
