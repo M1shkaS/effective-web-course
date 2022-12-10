@@ -8,7 +8,7 @@ const ErrorMessage: FC = () => {
       alt="Error"
       style={{
         display: 'block',
-        width: '250px',
+        width: '255px',
         height: '250px',
         margin: '0 auto'
       }}

@@ -4,8 +4,8 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import { Pagination, Stack } from '@mui/material';
 
-import SearchForm from 'components/SearchForm/SeacrhForm';
-import CardItem from 'components/СardItem/CardItem';
+import SearchForm from 'components/SearchForm/SearchForm';
+import CardItem from 'components/CardItem/CardItem';
 
 import { observer } from 'mobx-react-lite';
 import postsStore from 'stores/PostsStore';

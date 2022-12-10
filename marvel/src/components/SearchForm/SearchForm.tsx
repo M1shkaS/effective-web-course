@@ -7,7 +7,7 @@ import {
 } from 'formik';
 
 import postsStore from 'stores/PostsStore';
-import classes from './Searchform.module.scss';
+import classes from './SearchForm.module.scss';
 
 interface SearchFormProps {
   page: string;
