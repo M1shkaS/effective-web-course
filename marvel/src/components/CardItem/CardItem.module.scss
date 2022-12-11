@@ -1,0 +1,25 @@
+.Card {
+  transition: all 0.5s;
+  height: 350px;
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  img {
+    height: 140px;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+.Title {
+  font-size: 14px;
+  color: #cd3508;
+  font-weight: 600;
+}
+.Descr {
+  font-size: 14px;
+}

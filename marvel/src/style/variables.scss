@@ -1,0 +1,39 @@
+html[data-theme='dark'] {
+  --background-color: #2d3641;
+  --main-background-color: #242a37;
+  --text-color: #ffffff;
+
+  --input-text-color: #646464;
+  --input-placeholder-text-color: #747474;
+  --input-background-color: #f7f7f7;
+  --button-background-color: #ffeab6;
+
+  --card-background-color: #f5eeee;
+
+  --link-color: white;
+}
+html[data-theme='light'] {
+  --background-color: #ffffff;
+  --main-background-color: #ffffff;
+  --text-color: #252525;
+
+  --input-text-color: #252525;
+  --input-placeholder-text-color: #000000;
+  --input-background-color: #ffffff;
+  --button-background-color: #cfcfcf;
+
+  --card-background-color: #ffffff;
+
+  --link-color: rgb(196, 196, 196);
+}
+
+$background-color: var(--background-color);
+$main-background-color: var(--main-background-color);
+$text-color: var(--text-color);
+
+$input-text-color: var(--input-text-color);
+$input-placeholder-text-color: var(--input-placeholder-text-color);
+$input-background-color: var(--input-background-color);
+$button-background-color: var(--button-background-color);
+
+$card-background-color: var(--card-background-color);

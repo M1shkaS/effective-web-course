@@ -1,0 +1,12 @@
+@use '../../../src/style/variables';
+.Title {
+  font-weight: 600;
+  padding-left: 16px;
+  color: variables.$text-color;
+}
+.Link {
+  color: variables.$text-color;
+  &:hover {
+    color: rgb(202, 202, 202);
+  }
+}

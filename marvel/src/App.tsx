@@ -4,8 +4,8 @@ import { useRoutes } from 'react-router-dom';
 
 import routes from 'routes';
 import Container from '@mui/material/Container';
-import Header from './components/header/Header';
-import Footer from './components/footer/Footer';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 import './style/style.scss';
 
