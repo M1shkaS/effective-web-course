@@ -1,6 +1,7 @@
 .Card {
-  transition: all 0.5s;
+  transition: transform 0.5s;
   height: 350px;
+  position: relative;
   a {
     text-decoration: none;
     &:hover {
@@ -11,9 +12,30 @@
     height: 140px;
   }
 
+  .IconFavourites {
+    position: absolute;
+    top: 20px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    font-size: 25px;
+    color: #dadada;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  .Like {
+    color: #f9fd00;
+  }
   &:hover {
     transform: translateY(-5px);
+    .IconFavourites {
+      opacity: 1;
+    }
   }
+}
+
+.Like {
+  color: #f9fd00;
 }
 .Title {
   font-size: 14px;

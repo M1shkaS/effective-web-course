@@ -9,6 +9,9 @@ class PostsStore {
   posts: Post[] = [];
 
   @observable
+  favourites: Post[] = [];
+
+  @observable
   totalPosts: number = 0;
 
   @observable
@@ -112,6 +115,13 @@ class PostsStore {
       this.process = 'error';
       throw error;
     }
+  };
+
+  @action
+  addFavouritePosts = (favouritePosts: Post[]) => {
+    runInAction(() => {
+      this.favourites = favouritePosts;
+    });
   };
 }
 
