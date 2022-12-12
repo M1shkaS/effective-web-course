@@ -28,13 +28,11 @@ const ComicsPage = () => {
     offset,
     totalPosts,
     nameStartsWith,
-    typeSearchRequest,
-    getPostsList,
-    getPostsByTitleStartsWith
+    typeSearchRequest
   } = postsStore;
 
   useEffect(() => {
-    getPostsList('comics', 0);
+    postsStore.getPostsList('comics', 0);
   }, []);
 
   return (
@@ -63,13 +61,13 @@ const ComicsPage = () => {
             page={offset / limit + 1}
             onChange={(_, num) => {
               if (typeSearchRequest) {
-                getPostsByTitleStartsWith(
+                postsStore.getPostsByTitleStartsWith(
                   'comics',
                   nameStartsWith,
                   num * limit - limit
                 );
               } else {
-                getPostsList('comics', num * limit - limit);
+                postsStore.getPostsList('comics', num * limit - limit);
               }
             }}
             variant="outlined"

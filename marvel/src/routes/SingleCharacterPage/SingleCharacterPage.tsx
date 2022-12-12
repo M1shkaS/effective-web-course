@@ -15,11 +15,11 @@ import classes from './SingleCharacterPage.module.scss';
 
 const SingleCharacterPage = () => {
   const { id } = useParams();
-  const { process, character, getCharacter } = characterStore;
+  const { process, character } = characterStore;
 
   const charId = id || '0';
   useEffect(() => {
-    getCharacter(charId);
+    characterStore.getCharacter(charId);
   }, []);
   return (
     <>

@@ -1,6 +1,7 @@
 import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
 import CharactersPage from './CharactersPage/CharactersPage';
 import ComicsPage from './ComicsPage/ComicsPage';
+import FavouritesPage from './FavouritesPage/FavouritesPage';
 import SeriesPage from './SeriesPage/SeriesPage';
 import SingleCharacterPage from './SingleCharacterPage/SingleCharacterPage';
 import SingleComicPage from './SingleComicPage/SingleComicPage';
@@ -34,6 +35,10 @@ const routes = [
   {
     path: '/series/:id',
     element: <SingleSeriePage />
+  },
+  {
+    path: '/favourites',
+    element: <FavouritesPage />
   },
   { path: '*', element: <ErrorMessage /> }
 ];

@@ -33,6 +33,9 @@ const Header = () => {
             <ListItem>
               <NavLink to="/series">Series</NavLink>
             </ListItem>
+            <ListItem>
+              <NavLink to="/favourites">Favourites</NavLink>
+            </ListItem>
           </List>
         </Box>
         <Typography mr="16px">/</Typography>

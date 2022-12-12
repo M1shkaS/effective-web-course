@@ -1,0 +1,6 @@
+@use '../../../src/style/variables';
+
+.Title {
+  margin-bottom: 10px;
+  color: variables.$text-color;
+}
