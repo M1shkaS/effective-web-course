@@ -1,13 +1,19 @@
-export const transformItem = (item: any) => {
+import { Character, Comic, Post, Serie } from 'types/post';
+
+export const transformItem = (item: any): Post => {
   const title: string = item?.name ? item.name : item.title;
+  const descr: string = item.description
+    ? `${item.description.slice(0, 170)}...`
+    : 'Извините, данных нет';
+
   return {
     id: item.id,
     title,
-    description: item.description,
+    description: descr,
     thumbnail: `${item.thumbnail.path}.${item.thumbnail.extension}`
   };
 };
-export const transformChar = (char: any) => {
+export const transformChar = (char: any): Character => {
   const descr: string = char.description
     ? char.description
     : 'Извините, данных нет';
@@ -20,7 +26,7 @@ export const transformChar = (char: any) => {
     series: [...char.series.items]
   };
 };
-export const transformComic = (comic: any) => {
+export const transformComic = (comic: any): Comic => {
   const descr: string = comic.description
     ? comic.description
     : 'Извините, данных нет';
@@ -38,7 +44,7 @@ export const transformComic = (comic: any) => {
     series: [comic.series]
   };
 };
-export const transformSerie = (serie: any) => {
+export const transformSerie = (serie: any): Serie => {
   const descr: string = serie.description
     ? serie.description
     : 'Извините, данных нет';

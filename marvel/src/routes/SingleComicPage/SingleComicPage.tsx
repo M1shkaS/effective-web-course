@@ -12,12 +12,12 @@ import classes from './SingleComicPage.module.scss';
 
 const SingleComicPage = () => {
   const { id } = useParams();
-  const { process, comic, getComic } = comicStore;
+  const { process, comic } = comicStore;
 
   const comicId = id || '0';
 
   useEffect(() => {
-    getComic(comicId);
+    comicStore.getComic(comicId);
   }, []);
   return (
     <>

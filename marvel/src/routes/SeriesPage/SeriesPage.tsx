@@ -28,13 +28,11 @@ const SeriesPage = () => {
     offset,
     totalPosts,
     nameStartsWith,
-    typeSearchRequest,
-    getPostsList,
-    getPostsByTitleStartsWith
+    typeSearchRequest
   } = postsStore;
 
   useEffect(() => {
-    getPostsList('series', 0);
+    postsStore.getPostsList('series', 0);
   }, []);
 
   return (
@@ -63,13 +61,13 @@ const SeriesPage = () => {
             page={offset / limit + 1}
             onChange={(_, num) => {
               if (typeSearchRequest) {
-                getPostsByTitleStartsWith(
+                postsStore.getPostsByTitleStartsWith(
                   'series',
                   nameStartsWith,
                   num * limit - limit
                 );
               } else {
-                getPostsList('series', num * limit - limit);
+                postsStore.getPostsList('series', num * limit - limit);
               }
             }}
             variant="outlined"

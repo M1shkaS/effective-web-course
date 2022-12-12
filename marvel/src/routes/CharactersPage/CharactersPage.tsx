@@ -28,13 +28,11 @@ const CharactersPage = () => {
     limit,
     offset,
     nameStartsWith,
-    typeSearchRequest,
-    getPostsList,
-    getPostsByNameStartsWith
+    typeSearchRequest
   } = postsStore;
 
   useEffect(() => {
-    getPostsList('characters', 0);
+    postsStore.getPostsList('characters', 0);
   }, []);
 
   return (
@@ -63,13 +61,13 @@ const CharactersPage = () => {
             page={offset / limit + 1}
             onChange={(_, num) => {
               if (typeSearchRequest) {
-                getPostsByNameStartsWith(
+                postsStore.getPostsByNameStartsWith(
                   'characters',
                   nameStartsWith,
                   num * limit - limit
                 );
               } else {
-                getPostsList('characters', num * limit - limit);
+                postsStore.getPostsList('characters', num * limit - limit);
               }
             }}
             variant="outlined"
