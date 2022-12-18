@@ -14,8 +14,6 @@ interface SearchFormProps {
 }
 
 const SearchForm: FC<SearchFormProps> = ({ page }) => {
-  const { getPostsByNameStartsWith, getPostsByTitleStartsWith, getPostsList } =
-    postsStore;
   return (
     <div>
       <Formik
@@ -24,13 +22,13 @@ const SearchForm: FC<SearchFormProps> = ({ page }) => {
         }}
         onSubmit={({ nameStartsWith }) => {
           if (!nameStartsWith) {
-            getPostsList(page);
+            postsStore.getPostsList(page);
             return;
           }
           if (page === 'characters') {
-            getPostsByNameStartsWith(page, nameStartsWith, 0);
+            postsStore.getPostsByNameStartsWith(page, nameStartsWith, 0);
           } else {
-            getPostsByTitleStartsWith(page, nameStartsWith, 0);
+            postsStore.getPostsByTitleStartsWith(page, nameStartsWith, 0);
           }
         }}
       >

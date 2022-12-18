@@ -12,11 +12,11 @@ import classes from './SingleSeriePage.module.scss';
 
 const SingleSeriePage = () => {
   const { id } = useParams();
-  const { process, serie, getSerie } = serieStore;
+  const { process, serie } = serieStore;
 
   const serieId = id || '0';
   useEffect(() => {
-    getSerie(serieId);
+    serieStore.getSerie(serieId);
   }, []);
   return (
     <>
